@@ -1,4 +1,18 @@
 ---
+const pageTitle = "About Me";
+
+const identity = {
+  name: "Jordi Capelllades",  
+  location: "Barcelona, Spain",
+  occupation: "Frontend Developer",
+  hobbies: ["coding", "calisthenics", "reading"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git", "Figma"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -7,17 +21,34 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
-	<body>
-    <header>
-			<nav>
-				<a href="/">Home</a>
-				<a href="/about">About</a>
-				<a href="/blog">Blog</a>
+	<body class="p-5">
+    <header class="py-5">
+			<nav class="flex gap-6">
+				<a href="/" class="border border-neutral-900 px-2 py-1 rounded-lg">Home</a>
+				<a href="/about" class="border border-neutral-900 px-2 py-1 rounded-lg">About</a>
+				<a href="/blog" class="border border-neutral-900 px-2 py-1 rounded-lg">Blog</a>
 			</nav>
 		</header>
-		<h1>About Me</h1>
-    <p>I am working throught Astro's introducory tutorial. This is the second page on my website, and it's the first one I build myself!</p>    
+		<h1 class="text-2xl font-bold">{pageTitle}</h1>
+    <p class="opacity-50">I am working throught Astro's introducory tutorial. This is the second page on my website, and it's the first one I build myself!</p>    
+    <h2 class="font-semibold mt-2">Here are a few facts about me:</h2>
+    <ul>
+      <li>My name is {identity.name}.</li>
+      <li>I live in {identity.location} and I work as a {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 && 
+        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+      } 
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 	</body>
 </html>
