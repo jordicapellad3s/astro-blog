@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 ---
 
 <html lang="en">
@@ -7,22 +10,19 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Astro</title>    
 	</head>
-	<body class="p-5">
-		<header class="py-5">
-			<nav class="flex gap-6">
-				<a href="/" class="border border-neutral-900 px-2 py-1 rounded-lg">Home</a>
-				<a href="/about" class="border border-neutral-900 px-2 py-1 rounded-lg">About</a>
-				<a href="/blog" class="border border-neutral-900 px-2 py-1 rounded-lg">Blog</a>
-			</nav>
-		</header>
-		<h1>Blog</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
-      <li><a href="/posts/post-2/">Post 2</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-    </ul>
+	<body>
+		<Header />
+    <main>
+      <h1>Blog</h1>
+      <p>This is where I will post about my journey learning Astro.</p>
+      <ul>
+        <li><a href="/posts/post-1/">Post 1</a></li>
+        <li><a href="/posts/post-2/">Post 2</a></li>
+        <li><a href="/posts/post-3/">Post 3</a></li>
+      </ul>
+    </main>
+    <Footer />
 	</body>
 </html>
